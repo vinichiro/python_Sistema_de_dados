@@ -1,0 +1,24 @@
+import os
+
+nome = str(input('Qual é o nome da(o) cliente: '))
+
+mais = 'S'
+
+lista = []
+
+while mais == 'S':
+    comprou = str(input(f'Escreva, quais(uma de cada vez) roupas a(o) {nome} comprou: '))
+    lista.append(comprou)
+    mais = str(input('A(O) cliente comprou mais [S/N]? ')).upper()
+print(f'A(O) {nome} comprou isso {lista}')
+
+pagou = 'S'
+
+while pagou == 'S':
+    tirar = str(input(f'Escreva corretamente. Qual a(o) {nome} pagou? '))
+    lista.remove(tirar)
+    pagou = str(input(f'A(O) {nome} pagou mais [S/N]? ')).upper()
+arq = open('Arq.txt', 'w')
+arq.write(f'Nome: {nome}\nPrescisa pagar {lista}')
+arq.close()
+print(f'Então ela(e) ainda prescisa pagar {lista}\nACABOU!!!')
